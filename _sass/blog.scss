@@ -1,0 +1,32 @@
+section{
+  .section-header{
+    hr{
+      margin: 5px 0px;
+    }
+
+    margin-bottom: 50px;
+  }
+}
+
+div.tags-row-wrapper{
+  hr{
+    margin: 10px 0px;
+  }
+  div.tags-row{
+    width: 100%;
+    padding: 0px 10px;
+    span.tag{
+      font-size: 12px;
+      margin-right: 10px;
+      display: inline-block;
+      background-color: #e1ecf4;
+      color: #0077cc;
+      padding: 2px 5px;
+      border-radius: 5px;
+      &:last-child{
+        margin-right: 0px;
+      }
+    }
+
+  }
+}

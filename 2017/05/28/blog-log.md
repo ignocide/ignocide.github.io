@@ -1,0 +1,23 @@
+---
+layout: default
+tags: ["a tag","b tag","c tag"]
+title: 블로그 제작 로그 2017-05-28
+date: 2017.05.28
+---
+
+1. tag 적용, title,date 표시 
+
+### 사용방법
+
+```javascript
+----
+tags: ["a tag","b tag","c tag"]
+title: 블로그 제작 로그 2017-05-28
+date: 2017.05.28
+----
+```
+
+### 결과표시
+
+![](./title.png)
+![](./tags.png)

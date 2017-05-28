@@ -1,1 +1,4 @@
-theme: jekyll-theme-minimal
+title: Ignocide Blog
+description: Ignocide's blog, based on minimal theme
+google_analytics: UA-98367304-1
+theme:
