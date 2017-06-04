@@ -25,6 +25,19 @@
           <p class="view"><a href="{{ site.github.owner_url }}">View My GitHub Profile</a></p>
         {% endif %}
 
+        <div>
+          <div class="subtitle">tags</div>
+          <hr class="md">
+          <ul class="tags">
+            {% for tag in site.tags %}
+            {% assign t = tag | first %}
+            {% assign posts = tag | last %}
+            <li><span class="tag"><a href="/posts">{{t | downcase | replace:" ","-" }}</a></span></li>
+            {% endfor %}
+          </ul>
+        </div>
+        {{page.querystring.tag}}
+
       </header>
       <section>
 

@@ -30,3 +30,44 @@ div.tags-row-wrapper{
 
   }
 }
+
+header{
+  ul.tags{
+    background: none;
+    border: none;
+    height: initial;
+    li{
+      border:none;
+      width: initial;
+      float: none;
+      border-right: none;
+      height: initial;
+      display: inline-block;
+      span.tag{
+        font-size: 12px;
+        margin-right: 10px;
+        display: inline-block;
+        background-color: #e1ecf4;
+        color: #0077cc;
+        padding: 2px 5px;
+        border-radius: 5px;
+        a{
+          line-height: initial;
+          font-size:inherit;
+          color: inherit;
+          display: initial;
+          text-align: initial;
+          padding-top: initial;
+          height: initial;
+        }
+      }
+    }
+  }
+}
+
+
+.subtitle{
+  display: block;
+  font-weight: bold;
+  color: #494949;
+}
