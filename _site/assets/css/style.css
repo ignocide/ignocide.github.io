@@ -505,3 +505,7 @@ header ul.tags {
   display: block;
   font-weight: bold;
   color: #494949; }
+
+img[src$="centerme"] {
+  display: block;
+  margin: 0 auto; }
