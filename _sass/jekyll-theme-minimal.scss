@@ -62,9 +62,13 @@ a:hover small {
 
 blockquote {
   border-left:1px solid #e5e5e5;
-  margin:0;
-  padding:0 0 0 20px;
+  margin:0 0 20px 0;
+  padding:10px 0 10px 20px;
   font-style:italic;
+  background-color: #fefefe;
+  p{
+    margin :0px;
+  }
 }
 
 code, pre {
@@ -214,10 +218,6 @@ footer {
     float:none;
     position:static;
     width:auto;
-  }
-
-  header {
-    padding-right:320px;
   }
 
   section {

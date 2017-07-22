@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Ignocide Blog by </title>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="/assets/js/blog.js"></script>
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=">
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Ignocide Blog</h1>
+        <p>Ignocide's blog, based on minimal theme</p>
+
+        
+
+        
+
+        <div>
+          <div class="subtitle">tags</div>
+          <hr class="md">
+          <ul class="tags">
+            
+            
+            
+            <li><span class="tag"><a href="/posts">아두이노</a></span></li>
+            
+            
+            
+            <li><span class="tag"><a href="/posts">nodejs</a></span></li>
+            
+            
+            
+            <li><span class="tag"><a href="/posts">redis</a></span></li>
+            
+            
+            
+            <li><span class="tag"><a href="/posts">android</a></span></li>
+            
+            
+            
+            <li><span class="tag"><a href="/posts">블로그</a></span></li>
+            
+          </ul>
+        </div>
+        
+
+      </header>
+      <section>
+
+        
+          <div class="section-header">
+            <h1>[android] RecyclerView 에서의 setOnItemClickListener  (흉내내기)</h1>
+            <hr>
+            2016-07-26 00:00:00 +0900
+          </div>
+        
+        <h3 id="개요">개요</h3>
+
+<ul id="markdown-toc">
+  <li><a href="#개요" id="markdown-toc-개요">개요</a></li>
+  <li><a href="#흉내내보자" id="markdown-toc-흉내내보자">흉내내보자</a></li>
+</ul>
+
+<p>RecyclerView는 ListView에서의 비효율적인 리스트 아이템 생성과 같은 점을 극복하고자 좀 더 유연하고 좀 더 효율적으로 사용되기 위해 만들어졌다고 합니다.<br />
+RecyclerView이 만들기 이전에도 ListView에서 ViewHolder개념을 응용? 도입? 해서 효율적으로 사용하였지만 RecyclerView에선 강제적으로 사용하게 되었다고 합니다.</p>
+
+<p>하지만 Listview에서 setOnItemClickListener 와 같은 기능을 지원하지 않습니다.  addOnItemTouchListener와 같은 기능이 있지만 listview에서와 같이 직접적으로 position에 접근을 할 수 없고 여러 이슈가 있다고 합니다.</p>
+
+<h3 id="흉내내보자">흉내내보자</h3>
+
+<p>RecyclerView에서 onBindViewHolder해줄 때에 각각의 아이템에 OnClickListener를 등록해 주는 것으로 접근했습니다.<br />
+코드는 핵심적인 부분만 중략해서 작성했습니다.</p>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">RecyclerAdapter</span> <span class="kd">extends</span> <span class="n">RecyclerView</span><span class="o">.</span><span class="na">Adapter</span><span class="o">{</span>
+    <span class="kd">private</span> <span class="n">ArrayList</span> <span class="n">strings</span><span class="o">;</span>
+
+    <span class="c1">//아이템 클릭시 실행 함수</span>
+    <span class="kd">private</span> <span class="n">ItemClick</span> <span class="n">itemClick</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kd">interface</span> <span class="nc">ItemClick</span> <span class="o">{</span>
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onClick</span><span class="o">(</span><span class="n">View</span> <span class="n">view</span><span class="o">,</span><span class="kt">int</span> <span class="n">position</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="c1">//아이템 클릭시 실행 함수 등록 함수</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setItemClick</span><span class="o">(</span><span class="n">ItemClick</span> <span class="n">itemClick</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">itemClick</span> <span class="o">=</span> <span class="n">itemClick</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">ViewHolder</span> <span class="kd">extends</span> <span class="n">RecyclerView</span><span class="o">.</span><span class="na">ViewHolder</span><span class="o">{</span>
+        <span class="n">View</span> <span class="n">view</span><span class="o">;</span>
+        <span class="kd">public</span> <span class="nf">ViewHolder</span><span class="o">(</span><span class="n">View</span> <span class="n">view</span><span class="o">)</span> <span class="o">{</span>
+            <span class="kd">super</span><span class="o">(</span><span class="n">view</span><span class="o">);</span>
+            <span class="k">this</span><span class="o">.</span><span class="na">view</span> <span class="o">=</span> <span class="n">view</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">RecyclerAdapter</span><span class="o">.</span><span class="na">ViewHolder</span> <span class="nf">onCreateViewHolder</span><span class="o">(</span><span class="n">ViewGroup</span> <span class="n">parent</span><span class="o">,</span>
+                                                         <span class="kt">int</span> <span class="n">viewType</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// create a new view</span>
+        <span class="n">View</span> <span class="n">v</span> <span class="o">=</span> <span class="n">LayoutInflater</span><span class="o">.</span><span class="na">from</span><span class="o">(</span><span class="n">parent</span><span class="o">.</span><span class="na">getContext</span><span class="o">())</span>
+                <span class="o">.</span><span class="na">inflate</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">list_items</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+        <span class="n">ViewHolder</span> <span class="n">vh</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ViewHolder</span><span class="o">(</span><span class="n">v</span><span class="o">);</span>
+
+        <span class="k">return</span> <span class="n">vh</span><span class="o">;</span>
+    <span class="o">}</span>
+
+
+    <span class="c1">//중략 ...................</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onBindViewHolder</span><span class="o">(</span><span class="n">ViewHolder</span> <span class="n">holder</span><span class="o">,</span> <span class="kt">int</span> <span class="n">position</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">final</span> <span class="kt">int</span> <span class="n">Position</span> <span class="o">=</span> <span class="n">position</span><span class="o">;</span>
+        <span class="c1">//중략 ...................</span>
+        <span class="n">holder</span><span class="o">.</span><span class="na">view</span><span class="o">.</span><span class="na">setOnClickListener</span><span class="o">(</span><span class="k">new</span> <span class="n">View</span><span class="o">.</span><span class="na">OnClickListener</span><span class="o">()</span> <span class="o">{</span>
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onClick</span><span class="o">(</span><span class="n">View</span> <span class="n">v</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">if</span><span class="o">(</span><span class="n">itemClick</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">){</span>
+                    <span class="n">itemClick</span><span class="o">.</span><span class="na">onClick</span><span class="o">(</span><span class="n">v</span><span class="o">,</span> <span class="n">Position</span><span class="o">);</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">});</span>
+    <span class="o">}</span>
+    <span class="c1">//중략 ...................</span>
+
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<p>adapter 부분에서 이와 같은 방식으로 작성하였습니다.<br />
+이후에 recycler 호출부분에서 아래와 같이 작성한다면, listview에서 setOnItemClickListener 와같이 작동할 수 있습니다.</p>
+<div class="language-java highlighter-rouge"><pre class="highlight"><code>        <span class="n">mAdapter</span><span class="o">.</span><span class="na">setItemClick</span><span class="o">(</span><span class="k">new</span> <span class="n">RecyclerAdapter</span><span class="o">.</span><span class="na">ItemClick</span><span class="o">()</span> <span class="o">{</span>
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onClick</span><span class="o">(</span><span class="n">View</span> <span class="n">view</span><span class="o">,</span> <span class="kt">int</span> <span class="n">position</span><span class="o">)</span> <span class="o">{</span>
+                <span class="c1">//클릭시 실행될 함수 작성</span>
+            <span class="o">}</span>
+        <span class="o">});</span>
+</code></pre>
+</div>
+
+<p>코드가 길어져 상당히 중략을 하였습니다.</p>
+
+<p>제가 작성한 예제 코드는<br />
+안드로이드 스터디 프로젝트 <a href="git">https://github.com/ignocide/android_study/</a>에 공유하고 있습니다.</p>
+
+
+        
+        <div class="tags-row-wrapper">
+          태그
+          <hr/>
+          <div class="tags-row">
+            
+            <span class="tag">android</span>
+            
+          </div>
+        </div>
+        
+      </section>
+      <footer>
+        
+        <p><small>Based on <a href="https://github.com/orderedlist">orderedlist</a>'s theme</small></p>
+      </footer>
+    </div>
+    <script src="/assets/js/scale.fix.js"></script>
+
+
+  
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-98367304-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+  
+  </body>
+</html>

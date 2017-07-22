@@ -284,9 +284,12 @@ a:hover small {
 
 blockquote {
   border-left: 1px solid #e5e5e5;
-  margin: 0;
-  padding: 0 0 0 20px;
-  font-style: italic; }
+  margin: 0 0 20px 0;
+  padding: 10px 0 10px 20px;
+  font-style: italic;
+  background-color: #fefefe; }
+  blockquote p {
+    margin: 0px; }
 
 code, pre {
   font-family: Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal, Consolas, Liberation Mono, DejaVu Sans Mono, Courier New, monospace;
@@ -410,9 +413,6 @@ footer {
     position: static;
     width: auto; }
 
-  header {
-    padding-right: 320px; }
-
   section {
     border: 1px solid #e5e5e5;
     border-width: 1px 0;
@@ -509,3 +509,11 @@ header ul.tags {
 img[src$="centerme"] {
   display: block;
   margin: 0 auto; }
+
+#markdown-toc {
+  max-width: 300px;
+  float: right;
+  margin: 10px 30px;
+  padding: 20px 30px 20px 50px;
+  background-color: #E1ECF4;
+  border-radius: 5px; }
