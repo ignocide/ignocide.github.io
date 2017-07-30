@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>[hackerrank solution] Grading Students by </title>
+    <meta name="description" content="Ignocide's blog, It covers the whole of programming.">
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="/assets/js/blog.js"></script>
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=">
+    <meta name="viewport" content="width=device-width">
+
+    <meta property="og:title" content="[hackerrank solution] Grading Students">
+    <meta property="og:og:description" content="Ignocide's Blog">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Ignocide's Blog</h1>
+        <p>Ignocide's blog, It covers the whole of programming.</p>
+
+        
+
+        
+
+        <div>
+          <div class="subtitle">tags</div>
+          <hr class="md">
+          <ul class="tags">
+            
+            
+            
+            <li><span class="tag"><a href="/posts">아두이노</a></span></li>
+            
+            
+            
+            <li><span class="tag"><a href="/posts">nodejs</a></span></li>
+            
+            
+            
+            <li><span class="tag"><a href="/posts">redis</a></span></li>
+            
+            
+            
+            <li><span class="tag"><a href="/posts">android</a></span></li>
+            
+            
+            
+            <li><span class="tag"><a href="/posts">블로그</a></span></li>
+            
+            
+            
+            <li><span class="tag"><a href="/posts">hackerrank-solution</a></span></li>
+            
+            
+            
+            <li><span class="tag"><a href="/posts">sailsjs</a></span></li>
+            
+          </ul>
+        </div>
+        
+
+      </header>
+      <section>
+
+        
+          <div class="section-header">
+            <h1>[hackerrank solution] Grading Students</h1>
+            <hr>
+            2017-07-30 00:00:00 +0900
+          </div>
+        
+        <h3 id="solution">solution</h3>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>
+<span class="kd">function</span> <span class="nx">solve</span><span class="p">(</span><span class="nx">grades</span><span class="p">){</span>
+    <span class="c1">// Complete this function</span>
+    <span class="kd">var</span> <span class="nx">n</span> <span class="o">=</span> <span class="nx">grades</span><span class="p">.</span><span class="nx">length</span>
+    <span class="kd">var</span> <span class="nx">board</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">n</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+       <span class="kd">var</span> <span class="nx">tmp</span> <span class="o">=</span> <span class="nx">grades</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span>
+       <span class="kd">var</span> <span class="nx">grade</span> <span class="o">=</span> <span class="nx">rescore</span><span class="p">(</span><span class="nx">grades</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span>       
+       <span class="nx">grade</span> <span class="o">&gt;=</span> <span class="mi">40</span> <span class="p">?</span> <span class="nx">board</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">grade</span><span class="p">)</span> <span class="p">:</span> <span class="nx">board</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">tmp</span><span class="p">)</span>
+    <span class="p">}</span>
+    
+    <span class="k">return</span> <span class="nx">board</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">rescore</span><span class="p">(</span><span class="nx">grade</span><span class="p">){</span>
+    <span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">grade</span> <span class="o">%</span> <span class="mi">10</span>
+    <span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="nx">i</span> <span class="o">-</span> <span class="mi">5</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="p">?</span> <span class="mi">5</span> <span class="p">:</span> <span class="mi">10</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">a</span><span class="o">-</span><span class="nx">i</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">){</span>
+        <span class="nx">grade</span> <span class="o">=</span> <span class="nx">grade</span> <span class="o">-</span> <span class="nx">i</span> <span class="o">+</span> <span class="nx">a</span>
+    <span class="p">}</span>
+    
+    <span class="k">return</span> <span class="nx">grade</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">n</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">readLine</span><span class="p">());</span>
+    <span class="kd">var</span> <span class="nx">grades</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">grades_i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">grades_i</span> <span class="o">&lt;</span> <span class="nx">n</span><span class="p">;</span> <span class="nx">grades_i</span><span class="o">++</span><span class="p">){</span>
+       <span class="nx">grades</span><span class="p">[</span><span class="nx">grades_i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">readLine</span><span class="p">());</span>
+    <span class="p">}</span>
+    <span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">solve</span><span class="p">(</span><span class="nx">grades</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s2">"\n"</span><span class="p">));</span>
+    
+<span class="p">}</span>
+</code></pre>
+</div>
+
+
+        
+        <div class="tags-row-wrapper">
+          태그
+          <hr/>
+          <div class="tags-row">
+            
+            <span class="tag">hackerrank solution</span>
+            
+          </div>
+        </div>
+        
+      </section>
+      <footer>
+        
+        <p><small>Based on <a href="https://github.com/orderedlist">orderedlist</a>'s theme</small></p>
+      </footer>
+    </div>
+    <script src="/assets/js/scale.fix.js"></script>
+
+
+  
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-98367304-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+  
+  </body>
+</html>
