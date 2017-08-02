@@ -1,6 +1,6 @@
 title: Ignocide's Blog
 description: Ignocide's blog, It covers the whole of programming.
-#google_analytics: UA-98367304-1
+google_analytics: UA-98367304-1
 theme:
 gems:
   - jekyll-seo-tag
