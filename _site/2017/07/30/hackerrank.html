@@ -3,16 +3,27 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>[hackerrank solution] Grading Students by </title>
-    <meta name="description" content="Ignocide's blog, It covers the whole of programming.">
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="/assets/js/blog.js"></script>
 
     <link rel="stylesheet" href="/assets/css/style.css?v=">
     <meta name="viewport" content="width=device-width">
 
-    <meta property="og:title" content="[hackerrank solution] Grading Students">
-    <meta property="og:og:description" content="Ignocide's Blog">
+    <!-- Begin Jekyll SEO tag v2.2.3 -->
+<title>[hackerrank solution] Grading Students | Ignocide’s Blog</title>
+<meta property="og:title" content="[hackerrank solution] Grading Students" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="solution function solve(grades){ // Complete this function var n = grades.length var board = [] for(var i = 0; i &lt; n; i++){ var tmp = grades[i] var grade = rescore(grades[i]) grade &gt;= 40 ? board.push(grade) : board.push(tmp) } return board } function rescore(grade){ var i = grade % 10 var a = i - 5 &lt; 0 ? 5 : 10 if(a-i&lt;3){ grade = grade - i + a } return grade } function main() { var n = parseInt(readLine()); var grades = []; for(var grades_i = 0; grades_i &lt; n; grades_i++){ grades[grades_i] = parseInt(readLine()); } var result = solve(grades); console.log(result.join(&quot;\n&quot;)); }" />
+<meta property="og:description" content="solution function solve(grades){ // Complete this function var n = grades.length var board = [] for(var i = 0; i &lt; n; i++){ var tmp = grades[i] var grade = rescore(grades[i]) grade &gt;= 40 ? board.push(grade) : board.push(tmp) } return board } function rescore(grade){ var i = grade % 10 var a = i - 5 &lt; 0 ? 5 : 10 if(a-i&lt;3){ grade = grade - i + a } return grade } function main() { var n = parseInt(readLine()); var grades = []; for(var grades_i = 0; grades_i &lt; n; grades_i++){ grades[grades_i] = parseInt(readLine()); } var result = solve(grades); console.log(result.join(&quot;\n&quot;)); }" />
+<link rel="canonical" href="http://localhost:4000/2017/07/30/hackerrank.html" />
+<meta property="og:url" content="http://localhost:4000/2017/07/30/hackerrank.html" />
+<meta property="og:site_name" content="Ignocide’s Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-07-30T00:00:00+09:00" />
+<script type="application/ld+json">
+{"@context":"http://schema.org","@type":"BlogPosting","headline":"[hackerrank solution] Grading Students","datePublished":"2017-07-30T00:00:00+09:00","dateModified":"2017-07-30T00:00:00+09:00","description":"solution function solve(grades){ // Complete this function var n = grades.length var board = [] for(var i = 0; i &lt; n; i++){ var tmp = grades[i] var grade = rescore(grades[i]) grade &gt;= 40 ? board.push(grade) : board.push(tmp) } return board } function rescore(grade){ var i = grade % 10 var a = i - 5 &lt; 0 ? 5 : 10 if(a-i&lt;3){ grade = grade - i + a } return grade } function main() { var n = parseInt(readLine()); var grades = []; for(var grades_i = 0; grades_i &lt; n; grades_i++){ grades[grades_i] = parseInt(readLine()); } var result = solve(grades); console.log(result.join(&quot;\\n&quot;)); }","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2017/07/30/hackerrank.html"},"url":"http://localhost:4000/2017/07/30/hackerrank.html"}</script>
+<!-- End Jekyll SEO tag -->
+
 
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -135,16 +146,6 @@
     <script src="/assets/js/scale.fix.js"></script>
 
 
-  
-    <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-98367304-1', 'auto');
-        ga('send', 'pageview');
-    </script>
   
   </body>
 </html>
