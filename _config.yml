@@ -4,3 +4,4 @@ google_analytics: UA-98367304-1
 theme:
 gems:
   - jekyll-seo-tag
+  - jekyll-sitemap
