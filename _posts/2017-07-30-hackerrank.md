@@ -3,6 +3,7 @@ layout: default
 tags: ["hackerrank solution"]
 title: '[hackerrank solution] Grading Students'
 date: 2017.07.30
+one_line: "hackerrank solution, Grading Students"
 ---
 
 ### solution

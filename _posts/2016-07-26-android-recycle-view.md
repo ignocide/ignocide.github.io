@@ -1,8 +1,9 @@
 ---
 layout: default
 tags: ["android"]
-title: "[android] RecyclerView 에서의 setOnItemClickListener  (흉내내기)"
+title: "[android] RecyclerView 에서의 setOnItemClickListener (흉내내기)"
 date: 2016.07.26
+one_line: "다좋지만 불편한 단 하나 RecyclerView에서의 setOnItemClickListener를 구현에 본다"
 ---
 
 ### 개요  

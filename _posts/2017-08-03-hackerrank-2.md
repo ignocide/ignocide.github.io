@@ -3,6 +3,7 @@ layout: default
 tags: ["hackerrank solution"]
 title: '[hackerrank solution] Mini-Max Sum'
 date: 2017.08.03
+one_line: "hackerrank solution, Mini-Max Sum"
 ---
 
 ### solution

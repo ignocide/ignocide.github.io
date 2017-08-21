@@ -10,8 +10,8 @@
     <meta name="viewport" content="width=device-width">
 
     <!-- Begin Jekyll SEO tag v2.2.3 -->
-<title>[nodejs - redis] rediss - session 레디스 세션 이용하기 | Ignocide’s Blog</title>
-<meta property="og:title" content="[nodejs - redis] rediss - session 레디스 세션 이용하기" />
+<title>[nodejs - redis] redis - session 레디스 세션 이용하기 | Ignocide’s Blog</title>
+<meta property="og:title" content="[nodejs - redis] redis - session 레디스 세션 이용하기" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="redis를 session서버로 사용하는 방법 redis를 session서버로 사용하는 방법 결과 session의 값을 server와 분리 시킴으로서 안정적으로 저장하고 여러개의 서버의 세션을 하나의 redis서버로 통합하여 사용 할 수 있습니다. session의 특성상 입출력이 빈번하기 때문에 redis의 성격과도 잘 맞다고 생각됩니다. 우선 사용 모듈은 npm install express-session npm install redis npm install connect-redis npm install redis-session 입니다. express와 레디스 설치 방법은 생략합니다. //redis session require var session = require(&#39;express-session&#39;); var redis = require(&#39;redis&#39;); var redisStore = require(&#39;connect-redis&#39;)(session); var client = redis.createClient(); app.use(session( { secret: &#39;secret_key&#39;, store: new redisStore({ host: &quot;127.0.0.1&quot;, port: 6379, client: client, prefix : &quot;session:&quot;, db : 0 }), saveUninitialized: false, // don&#39;t create session until something stored, resave: true // don&#39;t save session if unmodified } )); //....아래쪽... //redis session input output var router = express.Router(); router.get(&#39;/session/set/:value&#39;, function(req, res) { req.session.redSession = req.params.value; res.send(&#39;session written in Redis successfully&#39;); }); app.get(&#39;/session/get/&#39;, function(req, res) { if(req.session.redSession) res.send(&#39;the session value stored in Redis is: &#39; + req.session.redSess); else res.send(&quot;no session value stored in Redis &quot;); }); 를 app.js에 작성하면 설정이 끝나게 됩니다. new redisStore 부분에 자신의 reids설정을 작성하고 db의 파라미터를 통하여 session store로 사용할 db index를 설정합니다. 결과 prefix를 통하여 키값의 앞에 붙일 값들을 정합니다. redis는 : &lt;- 를 통하여 키값들을 grouping하게 됩니다. 즉, 위와 같이 해놓게 된다면 session에 해당하는 key값들은 아래 결과의 사진을 보게 됬을때 정리가 깔금하게 됩니다. session의 사용방법은 여기를 참고해주시면 됩니다. 단순히 redis에 값을 저장하는 것이기 때문에 사용방법은 express-session과 같고 결과는 아래와 같이 나오는 걸 확인하여 session값이 저장됨을 볼 수있습니다." />
 <meta property="og:description" content="redis를 session서버로 사용하는 방법 redis를 session서버로 사용하는 방법 결과 session의 값을 server와 분리 시킴으로서 안정적으로 저장하고 여러개의 서버의 세션을 하나의 redis서버로 통합하여 사용 할 수 있습니다. session의 특성상 입출력이 빈번하기 때문에 redis의 성격과도 잘 맞다고 생각됩니다. 우선 사용 모듈은 npm install express-session npm install redis npm install connect-redis npm install redis-session 입니다. express와 레디스 설치 방법은 생략합니다. //redis session require var session = require(&#39;express-session&#39;); var redis = require(&#39;redis&#39;); var redisStore = require(&#39;connect-redis&#39;)(session); var client = redis.createClient(); app.use(session( { secret: &#39;secret_key&#39;, store: new redisStore({ host: &quot;127.0.0.1&quot;, port: 6379, client: client, prefix : &quot;session:&quot;, db : 0 }), saveUninitialized: false, // don&#39;t create session until something stored, resave: true // don&#39;t save session if unmodified } )); //....아래쪽... //redis session input output var router = express.Router(); router.get(&#39;/session/set/:value&#39;, function(req, res) { req.session.redSession = req.params.value; res.send(&#39;session written in Redis successfully&#39;); }); app.get(&#39;/session/get/&#39;, function(req, res) { if(req.session.redSession) res.send(&#39;the session value stored in Redis is: &#39; + req.session.redSess); else res.send(&quot;no session value stored in Redis &quot;); }); 를 app.js에 작성하면 설정이 끝나게 됩니다. new redisStore 부분에 자신의 reids설정을 작성하고 db의 파라미터를 통하여 session store로 사용할 db index를 설정합니다. 결과 prefix를 통하여 키값의 앞에 붙일 값들을 정합니다. redis는 : &lt;- 를 통하여 키값들을 grouping하게 됩니다. 즉, 위와 같이 해놓게 된다면 session에 해당하는 key값들은 아래 결과의 사진을 보게 됬을때 정리가 깔금하게 됩니다. session의 사용방법은 여기를 참고해주시면 됩니다. 단순히 redis에 값을 저장하는 것이기 때문에 사용방법은 express-session과 같고 결과는 아래와 같이 나오는 걸 확인하여 session값이 저장됨을 볼 수있습니다." />
@@ -21,7 +21,7 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2016-01-27T00:00:00+09:00" />
 <script type="application/ld+json">
-{"@context":"http://schema.org","@type":"BlogPosting","headline":"[nodejs - redis] rediss - session 레디스 세션 이용하기","datePublished":"2016-01-27T00:00:00+09:00","dateModified":"2016-01-27T00:00:00+09:00","description":"redis를 session서버로 사용하는 방법 redis를 session서버로 사용하는 방법 결과 session의 값을 server와 분리 시킴으로서 안정적으로 저장하고 여러개의 서버의 세션을 하나의 redis서버로 통합하여 사용 할 수 있습니다. session의 특성상 입출력이 빈번하기 때문에 redis의 성격과도 잘 맞다고 생각됩니다. 우선 사용 모듈은 npm install express-session npm install redis npm install connect-redis npm install redis-session 입니다. express와 레디스 설치 방법은 생략합니다. //redis session require var session = require(&#39;express-session&#39;); var redis = require(&#39;redis&#39;); var redisStore = require(&#39;connect-redis&#39;)(session); var client = redis.createClient(); app.use(session( { secret: &#39;secret_key&#39;, store: new redisStore({ host: &quot;127.0.0.1&quot;, port: 6379, client: client, prefix : &quot;session:&quot;, db : 0 }), saveUninitialized: false, // don&#39;t create session until something stored, resave: true // don&#39;t save session if unmodified } )); //....아래쪽... //redis session input output var router = express.Router(); router.get(&#39;/session/set/:value&#39;, function(req, res) { req.session.redSession = req.params.value; res.send(&#39;session written in Redis successfully&#39;); }); app.get(&#39;/session/get/&#39;, function(req, res) { if(req.session.redSession) res.send(&#39;the session value stored in Redis is: &#39; + req.session.redSess); else res.send(&quot;no session value stored in Redis &quot;); }); 를 app.js에 작성하면 설정이 끝나게 됩니다. new redisStore 부분에 자신의 reids설정을 작성하고 db의 파라미터를 통하여 session store로 사용할 db index를 설정합니다. 결과 prefix를 통하여 키값의 앞에 붙일 값들을 정합니다. redis는 : &lt;- 를 통하여 키값들을 grouping하게 됩니다. 즉, 위와 같이 해놓게 된다면 session에 해당하는 key값들은 아래 결과의 사진을 보게 됬을때 정리가 깔금하게 됩니다. session의 사용방법은 여기를 참고해주시면 됩니다. 단순히 redis에 값을 저장하는 것이기 때문에 사용방법은 express-session과 같고 결과는 아래와 같이 나오는 걸 확인하여 session값이 저장됨을 볼 수있습니다.","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2016/01/27/redis-session.html"},"url":"http://localhost:4000/2016/01/27/redis-session.html"}</script>
+{"@context":"http://schema.org","@type":"BlogPosting","headline":"[nodejs - redis] redis - session 레디스 세션 이용하기","datePublished":"2016-01-27T00:00:00+09:00","dateModified":"2016-01-27T00:00:00+09:00","description":"redis를 session서버로 사용하는 방법 redis를 session서버로 사용하는 방법 결과 session의 값을 server와 분리 시킴으로서 안정적으로 저장하고 여러개의 서버의 세션을 하나의 redis서버로 통합하여 사용 할 수 있습니다. session의 특성상 입출력이 빈번하기 때문에 redis의 성격과도 잘 맞다고 생각됩니다. 우선 사용 모듈은 npm install express-session npm install redis npm install connect-redis npm install redis-session 입니다. express와 레디스 설치 방법은 생략합니다. //redis session require var session = require(&#39;express-session&#39;); var redis = require(&#39;redis&#39;); var redisStore = require(&#39;connect-redis&#39;)(session); var client = redis.createClient(); app.use(session( { secret: &#39;secret_key&#39;, store: new redisStore({ host: &quot;127.0.0.1&quot;, port: 6379, client: client, prefix : &quot;session:&quot;, db : 0 }), saveUninitialized: false, // don&#39;t create session until something stored, resave: true // don&#39;t save session if unmodified } )); //....아래쪽... //redis session input output var router = express.Router(); router.get(&#39;/session/set/:value&#39;, function(req, res) { req.session.redSession = req.params.value; res.send(&#39;session written in Redis successfully&#39;); }); app.get(&#39;/session/get/&#39;, function(req, res) { if(req.session.redSession) res.send(&#39;the session value stored in Redis is: &#39; + req.session.redSess); else res.send(&quot;no session value stored in Redis &quot;); }); 를 app.js에 작성하면 설정이 끝나게 됩니다. new redisStore 부분에 자신의 reids설정을 작성하고 db의 파라미터를 통하여 session store로 사용할 db index를 설정합니다. 결과 prefix를 통하여 키값의 앞에 붙일 값들을 정합니다. redis는 : &lt;- 를 통하여 키값들을 grouping하게 됩니다. 즉, 위와 같이 해놓게 된다면 session에 해당하는 key값들은 아래 결과의 사진을 보게 됬을때 정리가 깔금하게 됩니다. session의 사용방법은 여기를 참고해주시면 됩니다. 단순히 redis에 값을 저장하는 것이기 때문에 사용방법은 express-session과 같고 결과는 아래와 같이 나오는 걸 확인하여 session값이 저장됨을 볼 수있습니다.","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2016/01/27/redis-session.html"},"url":"http://localhost:4000/2016/01/27/redis-session.html"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -46,44 +46,43 @@
             
             
             
-            <li><span class="tag"><a href="/posts">아두이노</a></span></li>
+            <li><span class="tag"><i class="ic ic-tag"></i><a href="/posts">아두이노</a></span></li>
             
             
             
-            <li><span class="tag"><a href="/posts">nodejs</a></span></li>
+            <li><span class="tag"><i class="ic ic-tag"></i><a href="/posts">nodejs</a></span></li>
             
             
             
-            <li><span class="tag"><a href="/posts">redis</a></span></li>
+            <li><span class="tag"><i class="ic ic-tag"></i><a href="/posts">redis</a></span></li>
             
             
             
-            <li><span class="tag"><a href="/posts">android</a></span></li>
+            <li><span class="tag"><i class="ic ic-tag"></i><a href="/posts">android</a></span></li>
             
             
             
-            <li><span class="tag"><a href="/posts">블로그</a></span></li>
+            <li><span class="tag"><i class="ic ic-tag"></i><a href="/posts">블로그-만들기</a></span></li>
             
             
             
-            <li><span class="tag"><a href="/posts">hackerrank-solution</a></span></li>
+            <li><span class="tag"><i class="ic ic-tag"></i><a href="/posts">hackerrank-solution</a></span></li>
             
             
             
-            <li><span class="tag"><a href="/posts">sailsjs</a></span></li>
+            <li><span class="tag"><i class="ic ic-tag"></i><a href="/posts">sailsjs</a></span></li>
             
           </ul>
         </div>
-        
 
       </header>
       <section>
 
         
           <div class="section-header">
-            <h1>[nodejs - redis] rediss - session 레디스 세션 이용하기</h1>
+            <h1>[nodejs - redis] redis - session 레디스 세션 이용하기</h1>
             <hr>
-            2016-01-27 00:00:00 +0900
+            January 27, 2016
           </div>
         
         <h3 id="redis를-session서버로-사용하는-방법">redis를 session서버로 사용하는 방법</h3>
@@ -168,9 +167,9 @@ npm install redis-session</p>
           <hr/>
           <div class="tags-row">
             
-            <span class="tag">nodejs</span>
+            <span class="tag"><i class="ic ic-tag"></i>nodejs</span>
             
-            <span class="tag">redis</span>
+            <span class="tag"><i class="ic ic-tag"></i>redis</span>
             
           </div>
         </div>
@@ -184,16 +183,6 @@ npm install redis-session</p>
     <script src="/assets/js/scale.fix.js"></script>
 
 
-  
-    <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-98367304-1', 'auto');
-        ga('send', 'pageview');
-    </script>
   
   </body>
 </html>

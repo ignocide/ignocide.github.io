@@ -529,3 +529,21 @@ img[src$="centerme"] {
   padding: 20px 30px 20px 50px;
   background-color: #E1ECF4;
   border-radius: 5px; }
+
+ul.post_list {
+  margin: 0px; }
+  ul.post_list li {
+    list-style: none;
+    color: #bbb;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee; }
+    ul.post_list li h2.title a {
+      font-weight: 700;
+      color: #555; }
+    ul.post_list li div.one_line {
+      color: #888;
+      font-size: 15px;
+      margin-bottom: 10px; }
+    ul.post_list li p .date {
+      color: #bbb; }

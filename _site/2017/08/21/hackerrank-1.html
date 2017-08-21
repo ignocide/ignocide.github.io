@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="/assets/js/blog.js"></script>
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=">
+    <meta name="viewport" content="width=device-width">
+
+    <!-- Begin Jekyll SEO tag v2.2.3 -->
+<title>[hackerrank solution] Time Conversion | Ignocide’s Blog</title>
+<meta property="og:title" content="[hackerrank solution] Time Conversion" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="solution function timeConversion(s) { // Complete this function var time = s.slice(0,8) var word = s.slice(8,10) var arr = time.split(&quot;:&quot;); if(word == &#39;AM&#39;){ if(arr[0] == &#39;12&#39;){ arr[0] = &#39;00&#39; } return arr.join(&#39;:&#39;) } if(arr[0] !== &#39;12&#39;){ arr[0] = parseInt(arr[0]) + 12 } return arr.join(&#39;:&#39;) } function main() { var s = readLine(); var result = timeConversion(s); process.stdout.write(&quot;&quot; + result + &quot;\n&quot;); }" />
+<meta property="og:description" content="solution function timeConversion(s) { // Complete this function var time = s.slice(0,8) var word = s.slice(8,10) var arr = time.split(&quot;:&quot;); if(word == &#39;AM&#39;){ if(arr[0] == &#39;12&#39;){ arr[0] = &#39;00&#39; } return arr.join(&#39;:&#39;) } if(arr[0] !== &#39;12&#39;){ arr[0] = parseInt(arr[0]) + 12 } return arr.join(&#39;:&#39;) } function main() { var s = readLine(); var result = timeConversion(s); process.stdout.write(&quot;&quot; + result + &quot;\n&quot;); }" />
+<link rel="canonical" href="http://localhost:4000/2017/08/21/hackerrank-1.html" />
+<meta property="og:url" content="http://localhost:4000/2017/08/21/hackerrank-1.html" />
+<meta property="og:site_name" content="Ignocide’s Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-08-21T00:00:00+09:00" />
+<script type="application/ld+json">
+{"@context":"http://schema.org","@type":"BlogPosting","headline":"[hackerrank solution] Time Conversion","datePublished":"2017-08-21T00:00:00+09:00","dateModified":"2017-08-21T00:00:00+09:00","description":"solution function timeConversion(s) { // Complete this function var time = s.slice(0,8) var word = s.slice(8,10) var arr = time.split(&quot;:&quot;); if(word == &#39;AM&#39;){ if(arr[0] == &#39;12&#39;){ arr[0] = &#39;00&#39; } return arr.join(&#39;:&#39;) } if(arr[0] !== &#39;12&#39;){ arr[0] = parseInt(arr[0]) + 12 } return arr.join(&#39;:&#39;) } function main() { var s = readLine(); var result = timeConversion(s); process.stdout.write(&quot;&quot; + result + &quot;\\n&quot;); }","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2017/08/21/hackerrank-1.html"},"url":"http://localhost:4000/2017/08/21/hackerrank-1.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Ignocide's Blog</h1>
+        <p>Ignocide's blog, It covers the whole of programming.</p>
+
+        
+
+        
+
+        <div>
+          <div class="subtitle">tags</div>
+          <hr class="md">
+          <ul class="tags">
+            
+            
+            
+            <li><span class="tag"><i class="ic ic-tag"></i><a href="/posts">아두이노</a></span></li>
+            
+            
+            
+            <li><span class="tag"><i class="ic ic-tag"></i><a href="/posts">nodejs</a></span></li>
+            
+            
+            
+            <li><span class="tag"><i class="ic ic-tag"></i><a href="/posts">redis</a></span></li>
+            
+            
+            
+            <li><span class="tag"><i class="ic ic-tag"></i><a href="/posts">android</a></span></li>
+            
+            
+            
+            <li><span class="tag"><i class="ic ic-tag"></i><a href="/posts">블로그-만들기</a></span></li>
+            
+            
+            
+            <li><span class="tag"><i class="ic ic-tag"></i><a href="/posts">hackerrank-solution</a></span></li>
+            
+            
+            
+            <li><span class="tag"><i class="ic ic-tag"></i><a href="/posts">sailsjs</a></span></li>
+            
+          </ul>
+        </div>
+
+      </header>
+      <section>
+
+        
+          <div class="section-header">
+            <h1>[hackerrank solution] Time Conversion</h1>
+            <hr>
+            August 21, 2017
+          </div>
+        
+        <h3 id="solution">solution</h3>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">timeConversion</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Complete this function</span>
+  <span class="kd">var</span> <span class="nx">time</span> <span class="o">=</span> <span class="nx">s</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span>
+  <span class="kd">var</span> <span class="nx">word</span> <span class="o">=</span> <span class="nx">s</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+  
+  <span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="nx">time</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">":"</span><span class="p">);</span>
+
+  <span class="k">if</span><span class="p">(</span><span class="nx">word</span> <span class="o">==</span> <span class="s1">'AM'</span><span class="p">){</span>
+    
+    <span class="k">if</span><span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'12'</span><span class="p">){</span>
+      <span class="nx">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'00'</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s1">':'</span><span class="p">)</span>
+  <span class="p">}</span>
+  
+
+  <span class="k">if</span><span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!==</span> <span class="s1">'12'</span><span class="p">){</span>
+    <span class="nx">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="mi">12</span>    
+  <span class="p">}</span>
+  
+  <span class="k">return</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s1">':'</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="nx">readLine</span><span class="p">();</span>
+    <span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">timeConversion</span><span class="p">(</span><span class="nx">s</span><span class="p">);</span>
+    <span class="nx">process</span><span class="p">.</span><span class="nx">stdout</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">""</span> <span class="o">+</span> <span class="nx">result</span> <span class="o">+</span> <span class="s2">"\n"</span><span class="p">);</span>
+
+<span class="p">}</span>
+</code></pre>
+</div>
+
+
+        
+        <div class="tags-row-wrapper">
+          태그
+          <hr/>
+          <div class="tags-row">
+            
+            <span class="tag"><i class="ic ic-tag"></i>hackerrank solution</span>
+            
+          </div>
+        </div>
+        
+      </section>
+      <footer>
+        
+        <p><small>Based on <a href="https://github.com/orderedlist">orderedlist</a>'s theme</small></p>
+      </footer>
+    </div>
+    <script src="/assets/js/scale.fix.js"></script>
+
+
+  
+  </body>
+</html>

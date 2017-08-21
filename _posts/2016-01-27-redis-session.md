@@ -1,8 +1,9 @@
 ---
 layout: default
 tags: ["nodejs","redis"]
-title: "[nodejs - redis] rediss - session 레디스 세션 이용하기"
+title: "[nodejs - redis] redis - session 레디스 세션 이용하기"
 date: 2016.01.27
+one_line: "레디스를 express의 세션 스토어로 사용하기 기본입니다."
 ---
 
 ### redis를 session서버로 사용하는 방법

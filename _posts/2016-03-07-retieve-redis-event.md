@@ -3,6 +3,7 @@ layout: default
 tags: ["nodejs","redis"]
 title: "[redis - node] key event 받아보기"
 date: 2016.03.07
+one_line: "레디스 이벤트의 pubsub 모델과 이를 이용한 설정, 받아보기입니다"
 ---
 
 
