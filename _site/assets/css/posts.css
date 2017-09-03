@@ -456,6 +456,10 @@ section .section-header {
   margin-bottom: 50px; }
   section .section-header hr {
     margin: 5px 0px; }
+section p {
+  line-height: 2;
+  word-spacing: 2px;
+  letter-spacing: 1.5px; }
 
 div.tags-row-wrapper hr {
   margin: 10px 0px; }
