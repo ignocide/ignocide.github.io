@@ -1,9 +1,8 @@
 ---
-layout: default
 tags: ["hackerrank solution"]
 title: '[hackerrank solution] Diagonal Difference'
 date: 2017.08.03
-one_line: "hackerrank solution, Diagonal Difference"
+category: 'hackerrank'
 ---
 
 ### solution
@@ -23,9 +22,9 @@ function main() {
   var sec = a.reduce(function(sum,v,k){
     return sum + v[n-1-k]
   },0)
-  
+
   var result = Math.abs(pri-sec)
-  
+
   console.log(result)
 }
 

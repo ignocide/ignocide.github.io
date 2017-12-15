@@ -1,9 +1,8 @@
 ---
-layout: default
 tags: ["hackerrank solution"]
 title: '[hackerrank solution] Time Conversion'
 date: 2017.08.21
-one_line: 'hackerrank solution, Time Conversion'
+category: 'hackerrank'
 ---
 
 ### solution
@@ -13,23 +12,23 @@ function timeConversion(s) {
     // Complete this function
   var time = s.slice(0,8)
   var word = s.slice(8,10)
-  
+
   var arr = time.split(":");
 
   if(word == 'AM'){
-    
+
     if(arr[0] == '12'){
       arr[0] = '00'
     }
 
     return arr.join(':')
   }
-  
+
 
   if(arr[0] !== '12'){
     arr[0] = parseInt(arr[0]) + 12    
   }
-  
+
   return arr.join(':')
 }
 

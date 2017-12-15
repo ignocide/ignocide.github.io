@@ -1,9 +1,8 @@
 ---
-layout: default
 tags: ["hackerrank solution"]
 title: '[hackerrank solution] Grading Students'
 date: 2017.07.30
-one_line: "hackerrank solution, Grading Students"
+category: 'hackerrank'
 ---
 
 ### solution
@@ -19,7 +18,7 @@ function solve(grades){
        var grade = rescore(grades[i])       
        grade >= 40 ? board.push(grade) : board.push(tmp)
     }
-    
+
     return board
 }
 
@@ -29,7 +28,7 @@ function rescore(grade){
     if(a-i<3){
         grade = grade - i + a
     }
-    
+
     return grade
 }
 
@@ -41,6 +40,6 @@ function main() {
     }
     var result = solve(grades);
     console.log(result.join("\n"));
-    
+
 }
 ```

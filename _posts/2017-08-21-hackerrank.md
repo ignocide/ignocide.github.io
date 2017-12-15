@@ -1,9 +1,8 @@
 ---
-layout: default
 tags: ["hackerrank solution"]
 title: '[hackerrank solution] Kangaroo'
 date: 2017.08.21
-one_line: 'hackerrank solution, Kangaroo'
+category: 'hackerrank'
 ---
 
 ### solution
