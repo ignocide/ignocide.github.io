@@ -8,17 +8,15 @@ category: 'hackerrank'
 ### solution
 
 ```javascript
-function main() {
-    arr = readLine().split(' ');
-    arr = arr.map(Number);
-    arr.sort()
+function main () {
+  arr = readLine().split(' ')
+  arr = arr.map(Number)
+  arr.sort()
 
-    var sum = arr.reduce(function(sum,num){
-      return sum + num
-    },0)
+  var sum = arr.reduce(function (sum, num) {
+    return sum + num
+  }, 0)
 
-    console.log((sum-arr[arr.length-1])+' '+(sum-arr[0]))
-
+  console.log((sum - arr[arr.length - 1]) + ' ' + (sum - arr[0]))
 }
-
 ```
